@@ -61,7 +61,7 @@ int main() {
 
       auto s = hasData(data);
 
-      if (s != "") {
+      if (!s.empty()) {
         auto j = json::parse(s);
         
         string event = j[0].get<string>();
