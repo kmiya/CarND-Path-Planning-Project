@@ -32,7 +32,7 @@ string hasData(const string& s) {
 // For converting back and forth between radians and degrees.
 constexpr double pi() { return M_PI; }
 double deg2rad(double x) { return x * pi() / 180; }
-double rad2deg(double x) { return x * 180 / pi(); }
+ // double rad2deg(double x) { return x * 180 / pi(); }
 
 // Calculate distance between two points
 double distance(double x1, double y1, double x2, double y2) {
@@ -45,7 +45,7 @@ int ClosestWaypoint(double x, double y, const vector<double> &maps_x,
   double closestLen = 100000; //large number
   int closestWaypoint = 0;
 
-  for (int i = 0; i < maps_x.size(); ++i) {
+  for (size_t i = 0; i < maps_x.size(); ++i) {
     double map_x = maps_x[i];
     double map_y = maps_y[i];
     double dist = distance(x,y,map_x,map_y);
@@ -61,7 +61,7 @@ int ClosestWaypoint(double x, double y, const vector<double> &maps_x,
 // Returns next waypoint of the closest waypoint
 int NextWaypoint(double x, double y, double theta, const vector<double> &maps_x, 
                  const vector<double> &maps_y) {
-  int closestWaypoint = ClosestWaypoint(x,y,maps_x,maps_y);
+  size_t closestWaypoint = ClosestWaypoint(x,y,maps_x,maps_y);
 
   double map_x = maps_x[closestWaypoint];
   double map_y = maps_y[closestWaypoint];
